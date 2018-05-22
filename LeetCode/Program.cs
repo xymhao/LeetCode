@@ -25,17 +25,17 @@ namespace LeetCode
             SingleNumber(new int[] { 4,1,2,1,2});
             Console.Read();
         }
-        public int[] Intersect(int[] nums1, int[] nums2)
-        {
-            Dictionary<int, int> dict = new Dictionary<int, int>();
-            for (var i = 0; i < nums1.Length; i++)
-            {
-                for (var j = 0; j < nums2.Length; j++)
-                {
+        //public int[] Intersect(int[] nums1, int[] nums2)
+        //{
+        //    Dictionary<int, int> dict = new Dictionary<int, int>();
+        //    for (var i = 0; i < nums1.Length; i++)
+        //    {
+        //        for (var j = 0; j < nums2.Length; j++)
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
 
         public static int RemoveDuplicates(int[] nums)
