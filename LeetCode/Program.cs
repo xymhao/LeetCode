@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace LeetCode
 {
@@ -13,7 +15,7 @@ namespace LeetCode
             double a = 8;
             double b = 5;
             double c = 6;
-
+            MySqlHelper help;
             var xx = (4 ^ 2) ^ 2;
             var x = Convert.ToInt32(a / b);
             var x2 = Convert.ToInt32(a / c);
