@@ -8,7 +8,30 @@ namespace LeetCode
 {
     public static class LeetCode
     {
-
+        public static int[] Intersect(int[] nums1, int[] nums2)
+        {
+            List<int> ls = new List<int>();
+            Sort2(nums1);
+            Sort2(nums2);
+            int j = 0;
+            for (var i = 0; i < nums1.Length; i++)
+            {
+                while (j < nums2.Length && nums1[i] >= nums2[j])
+                {
+                    if (nums1[i] == nums2[j])
+                    {
+                        ls.Add(nums1[i]);
+                        j++;
+                        break;
+                    }
+                    else if (nums1[i] > nums2[j])
+                        j++;
+                    else
+                        break;
+                }
+            }
+            return ls.ToArray();
+        }
 
         public static IList<IList<int>> ThreeSum(int[] nums)
         {
@@ -22,7 +45,7 @@ namespace LeetCode
             Dictionary<string, int> dict = new Dictionary<string, int>();
             for (int i = 0; i < nums.Length; i++)
             {
-                for (int j = i+1; j < nums.Length; j++)
+                for (int j = i + 1; j < nums.Length; j++)
                 {
                     var index = Search(nums, j + 1, nums.Length - 1, 0 - (nums[i] + nums[j]));
                     if (index != -1)
@@ -37,10 +60,24 @@ namespace LeetCode
             }
             return ls;
         }
+        public static void Sort2(int[] arr)
+        {
+            for (var i = 0; i < arr.Length; i++)
+            {
+                for (var j = 0; j < arr.Length - 1 - i; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
 
 
-
-        public static int Search(int[] arr, int left, int right, int key)
+            public static int Search(int[] arr, int left, int right, int key)
         {
             while (left <= right)
             {
@@ -60,7 +97,7 @@ namespace LeetCode
             int[] ls = new int[] { };
             for (var i = 0; i < arr.Length; i++)
             {
-                for (var j = 0; j < arr.Length -1 -i; j++)
+                for (var j = 0; j < arr.Length - 1 - i; j++)
                 {
                     if (arr[j] > arr[j + 1])
                     {
@@ -71,7 +108,7 @@ namespace LeetCode
                 }
             }
 
-            for (var i = 0; i < arr.Length -1; i++)
+            for (var i = 0; i < arr.Length - 1; i++)
             {
                 if (arr[i] == arr[i + 1])
                 {
@@ -85,7 +122,7 @@ namespace LeetCode
                     {
                         j++;
                     }
-                    i = j -1;
+                    i = j - 1;
                 }
                 else
                 {

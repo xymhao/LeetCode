@@ -12,19 +12,40 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            double a = 8;
-            double b = 5;
-            double c = 6;
-            MySqlHelper help;
-            var xx = (4 ^ 2) ^ 2;
-            var x = Convert.ToInt32(a / b);
-            var x2 = Convert.ToInt32(a / c);
-            int[] nums = new int[] { -1,0,0,0,0,3,3};
-            //RemoveDuplicates(nums);
-            MaxProfit(new int[] {1,2,3,4,5});
-            Console.WriteLine(a / b);
-            Rotate(new int[] { 1,2,3,4,5,6,7},3);
-            SingleNumber(new int[] { 4,1,2,1,2});
+            var max = sizeof(int);
+            var maxdouble = Math.Pow(2,31);
+            var maxdou = int.MaxValue;
+            var equ = maxdou.Equals(maxdouble);
+            Queue<int> queue = new Queue<int>();
+            for (var i = 0; i < 10; i++)
+            {
+                queue.Enqueue(i);
+            }
+
+            var x = queue.Peek();
+            x = queue.Peek();
+
+            var enumeator = queue.GetEnumerator();
+            LinkedList<int> link = new LinkedList<int>();
+
+            List<LinkedListNode<int>> nodeList = new List<LinkedListNode<int>>();
+            for (var i = 0; i < 10; i++)
+            {
+                LinkedListNode<int> node = new LinkedListNode<int>(0);
+                nodeList.Add(node);
+            }
+            for (var i = 0; i < 10; i++)
+            {
+                link.AddLast(i);
+                nodeList[i] = link.Last;
+            }
+            var nodes = nodeList[0].Next;
+
+            while (nodes.Next != null)
+            {
+                Console.WriteLine(nodes.Value);
+                nodes = nodes.Next;
+            }
             Console.Read();
         }
         //public int[] Intersect(int[] nums1, int[] nums2)

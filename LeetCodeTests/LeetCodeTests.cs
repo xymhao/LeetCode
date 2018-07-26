@@ -21,5 +21,12 @@ namespace LeetCode.Tests
             var ls = LeetCode.ThreeSum(num);
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void IntersectTest()
+        {
+            LeetCode.Intersect(new int[] { 1 ,2}, new int[] {1,1  });
+            Assert.Fail();
+        }
     }
 }
