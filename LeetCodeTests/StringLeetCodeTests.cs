@@ -18,6 +18,18 @@ namespace LeetCode.Tests
             Assert.Fail();
         }
 
+        [TestMethod()]
+        public void ConvertTest()
+        {
+            StringLeetCode.Convert();
+            Assert.Fail();
+        }
 
+        [TestMethod()]
+        public void RTest()
+        {
+            StringLeetCode.R(1,2);
+            Assert.Fail();
+        }
     }
 }

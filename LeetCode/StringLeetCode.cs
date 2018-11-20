@@ -54,5 +54,40 @@ namespace LeetCode
             }
             return true;
         }
+
+        public static void Convert(string str = "abcABC123")
+        {
+            string result = string.Empty;
+            for (var i = 0; i < str.Length; i++)
+            {
+                if (str[i] >= 'A' && str[i] <= 'Z')
+                {
+                    result += str[i] + ('a' - 'A');
+                }
+                else if (str[i] >= 'a' && str[i] <= 'z')
+                {
+                    result += str[i] - ('a' - 'A');
+
+                }
+                else if (str[i] >= '0' && str[i] <= '9')
+                {
+                    result += str[i].ToString();
+                }
+            }
+        }
+
+        public static int r()
+        {
+            Random random = new Random();
+            var val = random.Next(10);
+            return val;
+        }
+
+        public static int R(int x, int y)
+        {
+            var val = r();
+            val = y - val % (y - x);
+            return val;
+        }
     }
 }
