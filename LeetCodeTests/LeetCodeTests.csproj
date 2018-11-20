@@ -63,7 +63,9 @@
     <Compile Include="LeetCodeTests.cs" />
     <Compile Include="Objects\Median_of_Two_Sorted_ArraysTests.cs" />
     <Compile Include="Objects\Merge_Two_Sorted_ListsTests.cs" />
+    <Compile Include="Objects\Remove_ElementTests.cs" />
     <Compile Include="Objects\Remove_Nth_Node_From_End_of_ListTests.cs" />
+    <Compile Include="Objects\Search_in_Rotated_Sorted_ArrayTests.cs" />
     <Compile Include="Objects\Valid_ParenthesesTests.cs" />
     <Compile Include="object\FourSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

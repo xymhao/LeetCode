@@ -69,7 +69,9 @@
     <Compile Include="Objects\Median of Two Sorted Arrays.cs" />
     <Compile Include="Objects\Merge Two Sorted Lists.cs" />
     <Compile Include="Objects\Regular Expression Matching.cs" />
+    <Compile Include="Objects\Remove Element.cs" />
     <Compile Include="Objects\Remove Nth Node From End of List.cs" />
+    <Compile Include="Objects\Search in Rotated Sorted Array.cs" />
     <Compile Include="Objects\Valid Parentheses.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LeetCode.Objects
 {
-    class Search_in_Rotated_Sorted_Array
+    public static class Search_in_Rotated_Sorted_Array
     {
-        public int Search(int[] nums, int target)
+        public static int Search(int[] nums, int target)
         {
             if (nums.Length == 0)
                 return -1;

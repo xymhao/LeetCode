@@ -16,18 +16,42 @@ namespace LeetCode.Objects.Tests
         {
             ListNode node = new ListNode(1)
             {
-                next = new ListNode(2) {
-                    next = new ListNode(3) {
-                        next = new ListNode (4)
+                next = new ListNode(2)
+                {
+                    next = new ListNode(3)
+                    {
+                        next = new ListNode(4)
                     }
                 }
             };
-            ListNode node1 = new ListNode(1) {
-                next = new ListNode (2)
+            ListNode node1 = new ListNode(1)
+            {
+                next = new ListNode(2)
             };
             //Remove_Nth_Node_From_End_of_List.RemoveNthFromEnd(node1, 1);
             Remove_Nth_Node_From_End_of_List.RemoveNthFromEnd(node1, 2);
 
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void RemoveElementsTest()
+        {
+            ListNode node = new ListNode(1)
+            {
+                next = new ListNode(2)
+                {
+                    next = new ListNode(3)
+                    {
+                        next = new ListNode(4) {
+                            next = new ListNode(1) {
+                                next = new ListNode(1) { }
+                            }
+                        }
+                    }
+                }
+            };
+            Remove_Nth_Node_From_End_of_List.RemoveElements(node, 1);
             Assert.Fail();
         }
     }

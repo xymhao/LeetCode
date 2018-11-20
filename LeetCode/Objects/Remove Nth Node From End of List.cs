@@ -58,5 +58,35 @@
             }
             return root.next;
         }
+
+        public static ListNode RemoveElements(ListNode head, int val)
+        {
+            if (head == null)
+                return null;
+            ListNode root = new ListNode(0) {
+                next = head
+            };
+
+            var curruntNode = head;
+            while (true)
+            {
+                var nextNode = curruntNode.next;
+                if (curruntNode == head && curruntNode.val == val)
+                    root.next = curruntNode.next;
+                if (nextNode == null)
+                {
+                    break;
+                }
+                if(nextNode.val == val)
+                {
+                    curruntNode.next = nextNode.next;
+                    continue;
+                }
+
+                curruntNode = nextNode;
+            }
+
+            return root.next;
+        }
     }
 }
