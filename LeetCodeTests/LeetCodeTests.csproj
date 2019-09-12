@@ -72,6 +72,7 @@
     <Compile Include="SortOBTests.cs" />
     <Compile Include="StringLeetCodeTests.cs" />
     <Compile Include="ThreeSumClosestTests.cs" />
+    <Compile Include="Generate_ParenthesesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
