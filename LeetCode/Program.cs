@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+
 namespace LeetCode
 {
 
     class Program
     {
 
+        public class User
+        {
+            public Guid Id { get; set; }
 
+            public string Name { get; set; }
+
+            public DateTime CreateTime { get; set; }
+        }
         public class Person
         {
             private string firtstName;
@@ -60,39 +70,121 @@ namespace LeetCode
 
 
 
+        //static void Main(string[] args)
+        //{
+        //    Print(GetClassPropertiesName<User>(p => p.Name));
+        //    Print(GetClassPropertiesName<User>(p => p));
+        //    Print(GetClassPropertiesName<User>(p => new { p.Id, p.Name }));
+        //    Console.Read();
+        //}
         static void Main(string[] args)
         {
+            ConsoleColor colorBack = Console.BackgroundColor;
+            ConsoleColor colorFore = Console.ForegroundColor;
+            //1
+            //2
+            //合并提交
+            //Console.SetCursorPosition(0, 0);
+            Console.WriteLine("Loading...");
 
-            var per = new Person
+            int count = 0;
+            int index = 0;
+            double prePercent = 0;
+
+            List<string> list = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            count = list.Count;
+            //Console.SetCursorPosition(0, 1);
+            //Console.WriteLine("Total:" + count);
+            //count = 0;
+            System.Threading.Thread.Sleep(5000);//模拟加载等待
+            if (count > 0)
             {
-                FirstName = "Xu"
-            };
-            per.FirstName = null;
+                //Console.SetCursorPosition(0, 1);
+                Console.WriteLine("Total:" + count);
+                //绘制界面
+                Console.WriteLine("********************* Loading *********************");
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                for (int i = 0; ++i <= 50;)
+                {
+                    Console.Write(" ");
+                }
+                Console.WriteLine(" ");
+                Console.BackgroundColor = colorBack;
+                Console.WriteLine("0%");
+                Console.WriteLine("***************************************************");
 
-            per.LastName = "Yue";
-            Console.WriteLine(per.FullName);
-            var tupe = UseTuple();
+                foreach (string str in list)
+                {
+                    #region 绘制界面
+                    //绘制界面
+                    index++;
+                    double percent;
+                    if (index <= count)
+                    {
+                        percent = (double)index / count;
+                        percent = Math.Ceiling(percent * 100);
+                    }
+                    else
+                    {
+                        percent = 1;
+                        percent = Math.Ceiling(percent * 100);
+                    }
+                    // 开始控制进度条和进度变化
+                    for (int i = Convert.ToInt32(prePercent); i <= percent; i++)
+                    {
+                        //绘制进度条进度
+                        Console.BackgroundColor = ConsoleColor.Yellow;//设置进度条颜色
+                        Console.SetCursorPosition(i / 2, 3);//设置光标位置,参数为第几列和第几行
+                        Console.Write(" ");//移动进度条
+                        Console.BackgroundColor = colorBack;//恢复输出颜色
+                        //更新进度百分比,原理同上.
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(0, 4);
+                        Console.Write("{0}%", i);
+                        Console.ForegroundColor = colorFore;
+                        //模拟实际工作中的延迟,否则进度太快
+                        System.Threading.Thread.Sleep(50);
+                    }
+                    prePercent = percent;
+                    #endregion
+                }
 
-            Console.WriteLine($"{tupe.boolValue},{tupe.intval},{tupe.str}");
+                Console.SetCursorPosition(0, 6);
 
-            var matrix = new int[,] { { 1, 2, 3 }, { 42, 5, 6 } };
-            ref var valItem = ref Find3(matrix, (val) => val == 42);
-            Console.WriteLine(valItem);
-            valItem = 24;
-            foreach (var x in Power(10))
-            {
-                Console.WriteLine(x);
+                Console.WriteLine("Loading Complete.");
             }
-            Console.WriteLine(Power(10));
-
-            Funtest(x =>
+            Console.ReadLine();//会等待直到用户按下回车，一次读入一行
+        }
+        static void Print(List<string> arr)
+        {
+            foreach (var item in arr)
             {
-                Console.WriteLine(x);
-            });
-            Console.Read();
+                Console.WriteLine(item);
+            }
 
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
+        public static List<string> GetClassPropertiesName<T>(Expression<Func<T, dynamic>> select)
+        {
+            var result = new List<string>();
+            var body = select.Body;
+            if (body.NodeType == ExpressionType.Parameter)
+            {
+                result.AddRange((body as ParameterExpression).Type.GetProperties().Select(p => p.Name));
+            }
+            else if (body.NodeType == ExpressionType.MemberAccess)
+            {
+                result.Add((body as MemberExpression).Member.Name);
+            }
+            else if (body.NodeType == ExpressionType.New)
+            {
+                result.AddRange((body as NewExpression).Members.Select(p => p.Name));
+            }
+            return result;
+        }
         public static void Funtest(Action<int> fc)
         {
             for (var i = 0; i < 5; i++)
