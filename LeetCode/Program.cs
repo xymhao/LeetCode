@@ -85,6 +85,9 @@ namespace LeetCode
             //2
             //合并提交
             //Console.SetCursorPosition(0, 0);
+            //1
+            //2
+            //3
             Console.WriteLine("Loading...");
 
             int count = 0;
@@ -92,6 +95,10 @@ namespace LeetCode
             double prePercent = 0;
 
             List<string> list = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            Dictionary<Guid, Person> dict = new Dictionary<Guid, Person>() {{Guid.NewGuid(), new Person()}, { Guid.NewGuid(), new Person() }};
+            var ids = dict.Keys.ToList();
+            var values = dict.Values.ToList();
+
             count = list.Count;
             //Console.SetCursorPosition(0, 1);
             //Console.WriteLine("Total:" + count);
