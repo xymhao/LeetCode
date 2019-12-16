@@ -51,9 +51,6 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayLeetCode.cs" />
+    <Compile Include="IsIsomorphicString.cs" />
+    <Compile Include="Model\IsomorphicChar.cs" />
+    <Compile Include="Model\IsomorphicString.cs" />
     <Compile Include="LeetCode.cs" />
     <Compile Include="Objects\FourSum.cs" />
     <Compile Include="Objects\MaxArea.cs" />
@@ -82,8 +82,8 @@
     <Compile Include="ThreeSumClosest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
