@@ -64,13 +64,15 @@
   <ItemGroup>
     <Compile Include="ArrayLeetCode.cs" />
     <Compile Include="LeetCode.cs" />
+    <Compile Include="ListNode\ListNode.cs" />
+    <Compile Include="ListNode\PalindromeLinkedList.cs" />
     <Compile Include="Objects\FourSum.cs" />
     <Compile Include="Objects\MaxArea.cs" />
     <Compile Include="Objects\Median of Two Sorted Arrays.cs" />
     <Compile Include="Objects\Merge Two Sorted Lists.cs" />
     <Compile Include="Objects\Regular Expression Matching.cs" />
     <Compile Include="Objects\Remove Element.cs" />
-    <Compile Include="Objects\Remove Nth Node From End of List.cs" />
+    <Compile Include="ListNode\Remove Nth Node From End of List.cs" />
     <Compile Include="Objects\Search in Rotated Sorted Array.cs" />
     <Compile Include="Objects\Valid Parentheses.cs" />
     <Compile Include="Program.cs" />
@@ -83,5 +85,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
