@@ -32,6 +32,38 @@ namespace DataStructure.BubbleSort
             return array;
         }
 
+        /// <summary>
+        /// 快速排序
+        /// </summary>
+        /// <param name="array"></param>
+        public static void InsertionSort(int[] array)
+        {
+            if (array.Length == 1)
+            {
+                return;
+            }
 
+            for (int i = 1; i < array.Length; ++i)
+            {
+                int value = array[i];
+                int k = i - 1;
+                for (; k >= 0; --k)
+                {
+                    //当前值小于array[k], 插入
+                    if (value < array[k])
+                    {
+                        //后移
+                        array[k + 1] = array[k];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                array[k+1] = value;
+            }
+
+        }
     }
 }
