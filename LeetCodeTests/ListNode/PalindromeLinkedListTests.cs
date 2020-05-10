@@ -70,7 +70,44 @@ namespace LeetCode.Tests
             }
             Assert.AreEqual("1121", str);
 
-            
+
+        }
+
+        [TestMethod()]
+        public void MergeKListsTest()
+        {
+            ListNode[] listNodes = new[]
+            {
+                new ListNode(1)
+                {
+                    next = new ListNode(4)
+                    {
+                        next = new ListNode(5)
+                    }
+                },
+                new ListNode(1)
+                {
+                    next = new ListNode(3)
+                    {
+                        next = new ListNode(4)
+                    }
+                },
+                new ListNode(2)
+                {
+                    next = new ListNode(6)
+                }
+            };
+            var result = PalindromeLinkedList.MergeKLists(listNodes);
+
+            Assert.AreEqual(1, result.val);
+            Assert.AreEqual(1, result.next.val);
+            Assert.AreEqual(2, result.next.next.val);
+            Assert.AreEqual(3, result.next.next.next.val);
+            Assert.AreEqual(4, result.next.next.next.next.val);
+            Assert.AreEqual(4, result.next.next.next.next.next.val);
+            Assert.AreEqual(5, result.next.next.next.next.next.next.val);
+            Assert.AreEqual(6, result.next.next.next.next.next.next.next.val);
+
         }
     }
 }

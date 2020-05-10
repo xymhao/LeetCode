@@ -65,5 +65,48 @@ namespace LeetCode
 
             return pre;
         }
+
+        public static ListNode MergeKLists(ListNode[] lists)
+        {
+            if (lists ==null || lists.Length == 0)
+            {
+                return null;
+            }
+            var node = new ListNode(0);
+            var curNode = node;
+            while (curNode != null)
+            {
+                var minNode = lists[0];
+                int minIndex = 0;
+                for (int i = 1; i < lists.Length; i++)
+                {
+                    if (minNode == null)
+                    {
+                        minNode = lists[i];
+                        minIndex = i;
+                    }
+
+                    if (lists[i] == null)
+                    {
+                        continue;
+                    }
+
+                    if (minNode.val > lists[i].val)
+                    {
+                        minNode = lists[i];
+                        minIndex = i;
+                    }
+                }
+
+                curNode.next = minNode;
+                curNode = curNode.next;
+                if (lists[minIndex] != null)
+                {
+                    lists[minIndex] = lists[minIndex].next;
+                }
+            }
+
+            return node.next;
+        }
     }
 }

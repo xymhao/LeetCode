@@ -15,10 +15,18 @@ namespace DataStructureTests
         }
 
         [Test]
-        public void InsertionSort2Tests()
+        public void InsertionSortTests()
         {
             var array = new int[] { 4, 5, 6, 3, 2, 1 };
             Sort.InsertionSort(array);
+            AssertSort(array);
+        }
+
+        [Test]
+        public void SelectSortTests()
+        {
+            var array = new int[] { 4, 5, 6, 3, 2, 1 };
+            Sort.SelectSort(array);
             AssertSort(array);
         }
 
