@@ -30,6 +30,15 @@ namespace DataStructureTests
             AssertSort(array);
         }
 
+        [Test]
+        public void MergeSortTests()
+        {
+            var array = new int[] { 4, 5, 6, 3, 2, 1 };
+            Sort.MergeSor(array);
+            AssertSort(array);
+        }
+
+
         private static void AssertSort(int[] array)
         {
             Assert.AreEqual(1, array[0]);

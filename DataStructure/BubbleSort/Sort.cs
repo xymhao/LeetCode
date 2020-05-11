@@ -61,7 +61,7 @@ namespace DataStructure.BubbleSort
                     }
                 }
 
-                array[k+1] = value;
+                array[k + 1] = value;
             }
 
         }
@@ -71,7 +71,7 @@ namespace DataStructure.BubbleSort
             for (int i = 0; i < array.Length; i++)
             {
                 var min = i;
-                for (int j = i+1; j < array.Length; j++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
                     if (array[j] < array[min])
                     {
@@ -84,6 +84,69 @@ namespace DataStructure.BubbleSort
                 var temp = array[i];
                 array[i] = array[min];
                 array[min] = temp;
+            }
+        }
+
+        public static void MergeSor(int[] array)
+        {
+            //todo 将数据分解
+            DecompositionArray(array, 0, array.Length - 1);
+        }
+
+        private static void DecompositionArray(int[] array, int startIndex, int endIndex)
+        {
+            //终止条件
+            if (startIndex >= endIndex)
+            {
+                return;
+            }
+            //取中间数
+            var mid = (startIndex + endIndex) / 2;
+            DecompositionArray(array, startIndex, mid);
+            DecompositionArray(array, mid + 1, endIndex);
+
+            Merge(array, startIndex, mid, endIndex);
+        }
+
+        private static void Merge(int[] array, in int startIndex, in int midIndex, in int endIndex)
+        {
+            var star = startIndex;
+            var mid = midIndex + 1;
+            var k = 0;
+            var temp = new int[endIndex - startIndex + 1];
+            while (star <= midIndex && mid <= endIndex)
+            {
+                if (array[star] < array[mid])
+                {
+                    temp[k++] = array[star++];
+                }
+                else
+                {
+                    temp[k++] = array[mid++];
+                }
+            }
+
+            int oStar;
+            int oEnd;
+            if (mid <= endIndex)
+            {
+                oStar = mid;
+                oEnd = endIndex;
+            }
+            else
+            {
+                oStar = star;
+                oEnd = midIndex;
+            }
+
+            while (oStar <= oEnd)
+            {
+                temp[k++] = array[oStar++];
+            }
+
+            for (int i = 0; i <= endIndex - startIndex ; i++)
+            {
+                array[startIndex + i] = temp[i];
             }
         }
     }
