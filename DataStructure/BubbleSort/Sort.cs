@@ -128,15 +128,15 @@ namespace DataStructure.BubbleSort
 
             int oStar;
             int oEnd;
-            if (mid <= endIndex)
-            {
-                oStar = mid;
-                oEnd = endIndex;
-            }
-            else
+            if (star <= midIndex)
             {
                 oStar = star;
                 oEnd = midIndex;
+            }
+            else
+            {
+                oStar = mid;
+                oEnd = endIndex;
             }
 
             while (oStar <= oEnd)
