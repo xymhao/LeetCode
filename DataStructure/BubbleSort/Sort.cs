@@ -33,7 +33,7 @@ namespace DataStructure.BubbleSort
         }
 
         /// <summary>
-        /// 快速排序
+        /// 插入排序
         /// </summary>
         /// <param name="array"></param>
         public static void InsertionSort(int[] array)
