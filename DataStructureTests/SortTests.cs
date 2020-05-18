@@ -38,6 +38,23 @@ namespace DataStructureTests
             AssertSort(array);
         }
 
+        [Test]
+        public void QuickSort()
+        {
+            var array = new int[] { 4, 5, 6, 3, 2, 1 };
+            Sort.QuickSort(array);
+            AssertSort(array);
+        }
+
+
+        [Test]
+        public void QuickSort_Init_Partition()
+        {
+            var array = new int[] { 6, 11, 3, 9, 8 };
+            var result = Sort.Partition(array, 0, array.Length - 1);
+            Assert.AreEqual(2, result);
+        }
+
 
         private static void AssertSort(int[] array)
         {
@@ -48,5 +65,7 @@ namespace DataStructureTests
             Assert.AreEqual(5, array[4]);
             Assert.AreEqual(6, array[5]);
         }
+
+
     }
 }
