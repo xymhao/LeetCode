@@ -10,7 +10,7 @@ namespace LeetCode
             List<IList<int>> result = new List<IList<int>>();
             if (nums == null || nums.Length < 4)
                 return result.ToArray();
-            Array.Sort(nums);
+            //Sort(nums);
             //QuickSort(nums,0, nums.Length-1);
             for (int first = 0; first < nums.Length -3; first++)
             {
