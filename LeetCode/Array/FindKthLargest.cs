@@ -21,18 +21,15 @@ namespace LeetCode.Array
         {
             var q = Partition(p, r);
 
-            if (q + 1 == k)
+            int kIndex = array.Length - k;
+            if (q == kIndex)
             {
                 return array[q];
             }
 
-            if (k > q + 1)
-            {
-                return GetKthLargestRecursion(q + 1, r, k);
-            }
-
-            return GetKthLargestRecursion(p, q - 1, k);
-
+            return q> kIndex ? 
+                GetKthLargestRecursion(p, q - 1, k) : 
+                GetKthLargestRecursion(q+1, r, k);
         }
 
 
@@ -42,7 +39,7 @@ namespace LeetCode.Array
             int i = p;
             for (int j = p; j < r; j++)
             {
-                if (array[j] > pivot)
+                if (array[j] < pivot)
                 {
                     Swap(i, j);
                     i++;

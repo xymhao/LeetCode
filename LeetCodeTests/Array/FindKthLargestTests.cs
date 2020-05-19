@@ -14,10 +14,28 @@ namespace LeetCode.Array.Tests
         [TestMethod()]
         public void FindKthLargestTest()
         {
-            int[] array = new int[] {3, 2, 1, 5, 6, 4};
-            var result = FindKthLargest.GetKthLargest(array, 2);
+            int[] array = new int[] {3, 2, 1, 5, 6, 4}; var result = FindKthLargest.GetKthLargest(array, 2);
             Assert.AreEqual(5, result);
 
         }
+
+
+        [TestMethod()]
+        public void FindKthLargestTest2()
+        {
+            int[] array = new int[] { 3, 2, 3, 1, 2, 4, 5, 5, 6 }; var result = FindKthLargest.GetKthLargest(array, 4);
+            Assert.AreEqual(4, result);
+
+        }
+
+        [TestMethod()]
+        public void FindKthLargestTest3()
+        {
+            int[] array = new int[] { 3,1,2,4 }; 
+            var result = FindKthLargest.GetKthLargest(array, 2);
+            Assert.AreEqual(3, result);
+
+        }
     }
+
 }
