@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayLeetCode.cs" />
+    <Compile Include="Array\FindKthLargest.cs" />
     <Compile Include="LeetCode.cs" />
     <Compile Include="ListNode\ListNode.cs" />
     <Compile Include="ListNode\PalindromeLinkedList.cs" />

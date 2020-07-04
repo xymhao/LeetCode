@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArrayLeetCodeTests.cs" />
+    <Compile Include="Array\FindKthLargestTests.cs" />
     <Compile Include="LeetCodeTests.cs" />
     <Compile Include="ListNode\PalindromeLinkedListTests.cs" />
     <Compile Include="Objects\Median_of_Two_Sorted_ArraysTests.cs" />

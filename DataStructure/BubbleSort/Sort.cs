@@ -66,6 +66,10 @@ namespace DataStructure.BubbleSort
 
         }
 
+        /// <summary>
+        /// 选择排序
+        /// </summary>
+        /// <param name="array"></param>
         public static void SelectSort(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
@@ -87,6 +91,10 @@ namespace DataStructure.BubbleSort
             }
         }
 
+        /// <summary>
+        /// 归并排序
+        /// </summary>
+        /// <param name="array"></param>
         public static void MergeSor(int[] array)
         {
             //todo 将数据分解
@@ -144,10 +152,54 @@ namespace DataStructure.BubbleSort
                 temp[k++] = array[oStar++];
             }
 
-            for (int i = 0; i <= endIndex - startIndex ; i++)
+            for (int i = 0; i <= endIndex - startIndex; i++)
             {
                 array[startIndex + i] = temp[i];
             }
+        }
+
+        public static void QuickSort(int[] array)
+        {
+            QuickSortRecursive(array, 0, array.Length - 1);
+        }
+
+        private static void QuickSortRecursive(int[] array, int p, int r)
+        {
+            if (p >= r)
+            {
+                return;
+            }
+
+            var q = Partition(array, p, r);
+            QuickSortRecursive(array, p, q - 1);
+            QuickSortRecursive(array, q + 1, r);
+        }
+
+        public static int Partition(int[] array, int p, int r)
+        {
+            //todo 设置pivot分区点，根据分区点分区
+            //todo  分区1 ： p 到 i-1， 小于pivot
+            //todo  分区2 ： i 到 r， 大于pivot
+            var pivot = array[r];
+            int i = p;
+            for (int j = p; j < r; j++)
+            {
+                if (array[j] < pivot)
+                {
+                    Swap(array, i, j);
+                    i++;
+                }
+            }
+
+            Swap(array, r, i);
+            return i;
+        }
+
+        private static void Swap(int[] array, in int i, in int j)
+        {
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
     }
 }
