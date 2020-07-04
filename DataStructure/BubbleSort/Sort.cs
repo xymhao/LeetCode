@@ -13,7 +13,7 @@ namespace DataStructure.BubbleSort
             {
                 bool flag = false;
                 //从0开始，如果i+1 > i， 则交换位置
-                for (int i = 0; i < array.Length - 1; i++)
+                for (int i = 0; i < array.Length - 1 - j; i++)
                 {
                     var temp = array[i];
                     if (temp > array[i + 1])

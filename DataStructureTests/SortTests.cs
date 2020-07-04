@@ -9,7 +9,7 @@ namespace DataStructureTests
         [Test]
         public void BubbleSortTests()
         {
-            var array = new int[] { 4, 5, 6, 3, 2, 1 };
+            var array = new int[] { 4, 6, 3, 2, 1, 5 };
             Sort.BubbleSort(array);
             AssertSort(array);
         }
