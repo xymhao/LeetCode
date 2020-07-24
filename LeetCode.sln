@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructureProject", "Dat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCodeDemo", "LeetCodeDemo", "{CB5BFA4E-2397-4A03-A07E-0865AEBD3F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure\DataStructure.csproj", "{9C35AC80-D7B0-4DDD-960E-6D5C9ED40CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructure", "DataStructure\DataStructure.csproj", "{9C35AC80-D7B0-4DDD-960E-6D5C9ED40CBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructureTests", "DataStructureTests\DataStructureTests.csproj", "{67DD1C34-CA5E-4520-BA29-4E0B43BDED4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructureTests", "DataStructureTests\DataStructureTests.csproj", "{67DD1C34-CA5E-4520-BA29-4E0B43BDED4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{CC0C9C5F-7C2C-4A23-A61B-88002AD73F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternsTests", "DesignPatternsTests\DesignPatternsTests.csproj", "{8C727CDA-A851-4C70-8EB7-6333DBD959C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{67DD1C34-CA5E-4520-BA29-4E0B43BDED4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67DD1C34-CA5E-4520-BA29-4E0B43BDED4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67DD1C34-CA5E-4520-BA29-4E0B43BDED4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC0C9C5F-7C2C-4A23-A61B-88002AD73F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0C9C5F-7C2C-4A23-A61B-88002AD73F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0C9C5F-7C2C-4A23-A61B-88002AD73F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0C9C5F-7C2C-4A23-A61B-88002AD73F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C727CDA-A851-4C70-8EB7-6333DBD959C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C727CDA-A851-4C70-8EB7-6333DBD959C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C727CDA-A851-4C70-8EB7-6333DBD959C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C727CDA-A851-4C70-8EB7-6333DBD959C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
