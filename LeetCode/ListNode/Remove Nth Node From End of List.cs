@@ -1,6 +1,6 @@
 ﻿namespace LeetCode.Objects
 {
-    public static class Remove_Nth_Node_From_End_of_List
+    public static class  Remove_Nth_Node_From_End_of_List
     {
         public static ListNode RemoveNthFromEnd(ListNode head, int n)
         {
