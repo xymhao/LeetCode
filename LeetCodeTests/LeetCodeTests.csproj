@@ -72,6 +72,7 @@
     <Compile Include="object\FourSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortOBTests.cs" />
+    <Compile Include="Stack\ValidParenthesesTests.cs" />
     <Compile Include="StringLeetCodeTests.cs" />
     <Compile Include="StrstrTests_28.cs" />
     <Compile Include="ThreeSumClosestTests.cs" />
