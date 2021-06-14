@@ -67,6 +67,7 @@
     <Compile Include="LeetCode.cs" />
     <Compile Include="ListNode\ListNode.cs" />
     <Compile Include="ListNode\PalindromeLinkedList.cs" />
+    <Compile Include="MaximumSubarray.cs" />
     <Compile Include="Objects\FourSum.cs" />
     <Compile Include="Objects\MaxArea.cs" />
     <Compile Include="Objects\Median of Two Sorted Arrays.cs" />

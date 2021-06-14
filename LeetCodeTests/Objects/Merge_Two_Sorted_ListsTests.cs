@@ -29,7 +29,6 @@ namespace LeetCode.Objects.Tests
                 next = new ListNode(5)
             };
             var ls = new Merge_Two_Sorted_Lists().MergeTwoLists(node,node1);
-            Assert.Fail();
         }
     }
 }
