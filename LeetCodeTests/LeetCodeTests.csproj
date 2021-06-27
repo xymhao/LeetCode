@@ -62,7 +62,9 @@
     <Compile Include="ArrayLeetCodeTests.cs" />
     <Compile Include="Array\FindKthLargestTests.cs" />
     <Compile Include="LeetCodeTests.cs" />
+    <Compile Include="LengthOfLastWordTests.cs" />
     <Compile Include="ListNode\PalindromeLinkedListTests.cs" />
+    <Compile Include="ListNode\SwapPairsTest.cs" />
     <Compile Include="MaximumSubarrayTests.cs" />
     <Compile Include="Objects\Median_of_Two_Sorted_ArraysTests.cs" />
     <Compile Include="Objects\Merge_Two_Sorted_ListsTests.cs" />
