@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="ArrayLeetCodeTests.cs" />
     <Compile Include="Array\FindKthLargestTests.cs" />
+    <Compile Include="DivideTest.cs" />
     <Compile Include="LeetCodeTests.cs" />
     <Compile Include="LengthOfLastWordTests.cs" />
     <Compile Include="ListNode\PalindromeLinkedListTests.cs" />
