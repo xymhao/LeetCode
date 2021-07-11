@@ -82,4 +82,20 @@ namespace LeetCodeTests
             return count + Div(dividend - backDivisor, divisor);
         }
     }
+
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public void Introduction()
+        {
+            Console.WriteLine($"I am {Name}, Age:{Age}!");
+        }
+    }
+
+    public class Student : Person {}
+    
+    public class Teacher : Person{}
 }
