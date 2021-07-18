@@ -1,33 +1,43 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructure.HashTableDemo
 {
-    public class HashTable : IDictionary
+    public class MonHashTable : IDictionary
     {
         /// <summary>
-        /// 当前极客的装在数量
+        /// 当前装在数量
         /// </summary>
         private int _loadSize;
 
         /// <summary>
         /// 装载因子
         /// </summary>
-        private float _loadFactor;
+        private readonly float _loadFactor;
 
-        private int _count;
-
-        private int _occupancy;
+        private Bucket[] _buckets;
 
 
         private const int InitialSize = 3;
 
-        public HashTable() : this(0, 1.0f)
+        /// <summary>
+        /// 当前元素个数
+        /// </summary>
+        public int Count { get; private set; }
+
+        /// <summary>
+        /// 非线程安全
+        /// </summary>
+        public bool IsSynchronized { get; } = false;
+
+        public MonHashTable() : this(0, 1.0f)
         {
         }
 
-        public HashTable(int capacity, float loadFactor)
+        public MonHashTable(int capacity, float loadFactor)
         {
             if (capacity < 0)
                 throw new ArgumentOutOfRangeException(nameof(capacity));
@@ -42,11 +52,10 @@ namespace DataStructure.HashTableDemo
                 throw new ArgumentException(nameof(capacity));
 
             // Avoid awfully small sizes
-            int hashSize = (rawSize > InitialSize) ? HashHelpers.GetPrime((int) rawSize) : InitialSize;
+            int hashSize = Math.Max((int)rawSize, InitialSize);
             _buckets = new Bucket[hashSize];
 
             _loadSize = (int) (_loadFactor * hashSize);
-            _loadFactor = loadFactor;
         }
 
         /// <summary>
@@ -54,12 +63,11 @@ namespace DataStructure.HashTableDemo
         /// </summary>
         private struct Bucket
         {
-            public object? key;
-            public object? val;
-            public int hash_coll; // Store hash code; sign bit means there was a collision.
+            public object? Key;
+            public object? Val;
+            public int HashColl; // Store hash code; sign bit means there was a collision.
         }
 
-        private Bucket[] _buckets = null!;
 
         public void Add(object key, object? value)
         {
@@ -68,49 +76,71 @@ namespace DataStructure.HashTableDemo
                 throw new ArgumentException(nameof(key));
             }
 
-            if (_count >= _loadFactor)
+            if (Count >= _loadSize)
             {
                 //扩容
+                Expand();
             }
 
-            var hashColl = InitHash(key, _buckets.Length);
-            var number = hashColl % _buckets.Length;
+            var hashColl = InitHash(key);
+            Insert(key, value, hashColl, _buckets);
+            Count++;
+        }
+
+        private static void Insert(object key, object? value, uint hashColl, Bucket[] buckets)
+        {
+            var number = hashColl % buckets.Length;
             var nTry = 0;
             //判断是否发生散列冲突
             do
             {
                 //未使用的情况下插入
-                if (_buckets[number].key == null)
+                if (buckets[number].Key == null)
                 {
-                    _buckets[number] = new Bucket()
+                    buckets[number] = new Bucket()
                     {
-                        key = key,
-                        val = value,
-                        hash_coll = (int) hashColl
+                        Key = key,
+                        Val = value,
+                        HashColl = (int) hashColl
                     };
                     return;
                 }
 
-                number = (number + 1) % _buckets.Length;
+                number = (number + 1) % buckets.Length;
                 nTry++;
-            } while (nTry < _buckets.Length);
-
+            } while (nTry < buckets.Length);
         }
 
+        /// <summary>
+        /// 当超过
+        /// </summary>
         private void Expand()
         {
             //将原数组扩大到以前的两倍
-            int rawSize = HashHelpers.ExpandPrime(_buckets.Length);
+            int rawSize = _buckets.Length * 2;
             var newBucket = new Bucket[rawSize];
+            ReHash(newBucket);
+        }
+
+        private void ReHash(Bucket[] newBucket)
+        {
             foreach (Bucket bucket in _buckets)
             {
-                
+                if (bucket.Key == null)
+                {
+                    continue;
+                }
+
+                var hashColl = InitHash(bucket.Key);
+                Insert(bucket.Key, bucket.Val, hashColl, newBucket);
             }
-            
+
+            _buckets = newBucket;
+            _loadSize = (int) (_loadFactor * _buckets.Length);
         }
 
 
-        private uint InitHash(object key, int hashSize)
+        private uint InitHash(object key)
         {
             return (uint) key.GetHashCode() & int.MaxValue;
         }
@@ -147,14 +177,21 @@ namespace DataStructure.HashTableDemo
         {
             get
             {
-                var hash = InitHash(key, _buckets.Length);
+                var hash = InitHash(key);
                 var number = hash % _buckets.Length;
-                return _buckets[number].val;
+                return _buckets[number].Val;
             }
             set => throw new NotImplementedException();
         }
 
-        public ICollection Keys { get; }
+        public ICollection Keys
+        {
+            get
+            {
+                return _buckets.Where(x => x.Key != null).Select(x => x.Key).ToList();
+            }
+        }
+
         public ICollection Values { get; }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -167,9 +204,7 @@ namespace DataStructure.HashTableDemo
             throw new NotImplementedException();
         }
 
-        public int Count => _count;
 
-        public bool IsSynchronized { get; }
         public object SyncRoot { get; }
     }
 }
