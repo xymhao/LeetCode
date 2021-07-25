@@ -59,6 +59,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AddBinaryTests.cs" />
     <Compile Include="ArrayLeetCodeTests.cs" />
     <Compile Include="Array\FindKthLargestTests.cs" />
     <Compile Include="DivideTest.cs" />
